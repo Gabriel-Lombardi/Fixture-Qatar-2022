@@ -4,35 +4,57 @@ function handleSubmit(event) {
   let visitante = event.target.children[3].textContent;
   let golesLocal = event.target.children[1].value;
   let golesVisitante = event.target.children[2].value;
+
   let ganoLocal = false;
   let empate = false;
-  let ganoVisitante = false;
   if (golesLocal > golesVisitante) ganoLocal = true;
   else if (golesLocal == golesVisitante) empate = true;
-  else ganoVisitante = true;
 
   let tds = document.querySelectorAll('td');
   for (let td of tds) {
     if (td.textContent == local || td.textContent == visitante) {
       // PJ + 1
-      td.nextElementSibling[2].textContent =
-      parseInt(td.nextElementSibling[2].textContent) + 1;
-      // si hay empate
-      if (empate = true) {
-        td.nextElementSibling[5].textContent = parseInt(td.nextElementSibling[5].textContent) + 1;
+      td.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.textContent) + 1;
+      // si empatan
+      if (empate) {
+        td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
+        td.nextElementSibling.textContent = parseInt(td.nextElementSibling.textContent) + 1;
       }
-      // si gana el local
-      if (ganoLocal = true) {
-        td.nextElementSibling[4].textContent = parseInt(td.nextElementSibling[4].textContent) + 3;
+    }
+    if (td.textContent == local) {
+      // GF del local
+      td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesLocal);
+      // GC del local
+      td.parentElement.children[8].textContent = parseInt(td.parentElement.children[8].textContent) + parseInt(golesVisitante);
+      // Diferencia de gol
+      // Diferencia de gol
+      td.parentElement.children[9].textContent = parseInt(td.parentElement.children[7].textContent) - parseInt(td.parentElement.children[8].textContent);
+      // Sumar 3 puntos y partido ganado (PG) si gana el local
+      if (golesLocal > golesVisitante) {
+        td.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
+        td.nextElementSibling.textContent = (parseInt(td.parentElement.children[4].textContent) * 3) + parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent);
       }
-      // si gana el visitante
-      if (ganoVisitante = true) {
+      // Sumar partido perdido (PP) si pierde el local
+      if (golesLocal < golesVisitante) {
+        td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
       }
-      // goles a favor
-
-      // goles en contra
-
-      // diferencia de gol
+    }
+    if (td.textContent == visitante) {
+      // GF del visitante
+      td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesVisitante);
+      // GC del visitante
+      td.parentElement.children[8].textContent = parseInt(td.parentElement.children[8].textContent) + parseInt(golesLocal);
+      // Sumar 3 puntos y partido ganado (PG) si gana el visitante
+      if (golesVisitante > golesLocal) {
+        td.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
+        td.nextElementSibling.textContent = (parseInt(td.parentElement.children[4].textContent) * 3) + parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent);
+      }
+      // Sumar partido perdido (PP) si pierde el visitante
+      if (golesVisitante < golesLocal) {
+        td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
+      }
+      // Diferencia de gol
+      td.parentElement.children[9].textContent = parseInt(td.parentElement.children[7].textContent) - parseInt(td.parentElement.children[8].textContent);
     }
   }
 }

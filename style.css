@@ -3,6 +3,11 @@ ul{
   text-decoration-color: none;
 }
 
+.arg {
+  color: white;
+  background: rgb(117, 170, 219);
+}
+
 a{
   text-decoration: none;
 }
@@ -59,6 +64,7 @@ h4 {
   font-size: 25px;
   background-color: black;
   width: 10%;
+  text-align: center;
 }
 
 h5 {
@@ -186,10 +192,41 @@ table tr {
   text-align: center;
 }
 
-.tgrupo td{
-
+.llaves {
+  display: flex;
 }
 
-body{
+.cruces {
+  display: flex;
+  flex-direction: row;
+}
+
+.cuartos {
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+.semis {
+  margin-top: 7.5%;
+  margin-left: 2%;
+}
+
+.final {
+  margin-top: 8.75%;
+  margin-left: 2%;
+}
+
+.terPuesto {
+  margin-top: 15%;
+  margin-left: 2%;
+}
+
+#horario {
+  background-color: green;
+  margin-right: 43%;
+  margin-left: 43%;
+}
+
+body {
   background-color: #13442e;
 }
