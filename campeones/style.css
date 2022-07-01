@@ -7,6 +7,14 @@ h1 {
   color: white;
 }
 
+h4 {
+  font-family: monospace;
+  color: white;
+  font-size: 25px;
+  background-color: black;
+  width: 30%;
+  text-align: center;
+}
 
 a{
   text-decoration: none;
@@ -35,7 +43,7 @@ a:active {
 }
 
 .campeones {
-  border: solid 2px white;
+  /* border: solid 2px white; */
 }
 
 #fixequcam {
@@ -52,12 +60,20 @@ a:active {
 
 table {
   table-layout: fixed;
-  width: 60%;
-  border: 1px solid white;
-  color: white;
+  width: 50%;
+  color: black;
   font-family: arial;
+  border: 1px solid white;
 }
 
-table tr {
-  text-align: center;
+.campeones td{
+  background-color: white;
+}
+
+strong {
+  background-color: white;
+}
+
+i {
+  background-color: white;
 }

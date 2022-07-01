@@ -86,7 +86,7 @@ h6 {
 .matches {
   border: 1px solid black;
   background-color: #E5E5E5;
-  width: 20%;
+  width: 25%;
   margin: auto;
 }
 
@@ -152,7 +152,7 @@ form {
 
 table {
   table-layout: fixed;
-  width: 60%;
+  width: 75%;
   border: 1px solid white;
   color: white;
   font-family: arial;
@@ -194,31 +194,49 @@ table tr {
 
 .llaves {
   display: flex;
+  justify-content: space-around;
 }
+
+/* . input {
+  width: 50px;
+} */
 
 .cruces {
   display: flex;
-  flex-direction: row;
+}
+
+.octavos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cuartos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 5%;
-  margin-left: 2%;
 }
 
 .semis {
-  margin-top: 7.5%;
-  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7.75%;
 }
 
 .final {
-  margin-top: 8.75%;
-  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8.95%;
 }
 
 .terPuesto {
-  margin-top: 15%;
-  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
 }
 
 #horario {

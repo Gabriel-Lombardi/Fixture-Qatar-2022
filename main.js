@@ -2,6 +2,7 @@ function handleSubmit(event) {
   event.preventDefault();
   let local = event.target.children[0].textContent;
   let visitante = event.target.children[3].textContent;
+  // console.log(local,visitante);
   let golesLocal = event.target.children[1].value;
   let golesVisitante = event.target.children[2].value;
 
@@ -12,8 +13,9 @@ function handleSubmit(event) {
 
   let tds = document.querySelectorAll('td');
   for (let td of tds) {
-    if (td.textContent == local || td.textContent == visitante) {
+    if (td.textContent.includes(local) || td.textContent.includes(visitante)) {
       // PJ + 1
+      // console.log(td);
       td.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.textContent) + 1;
       // si empatan
       if (empate) {
@@ -21,7 +23,7 @@ function handleSubmit(event) {
         td.nextElementSibling.textContent = parseInt(td.nextElementSibling.textContent) + 1;
       }
     }
-    if (td.textContent == local) {
+    if (td.textContent.includes(local)) {
       // GF del local
       td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesLocal);
       // GC del local
@@ -39,7 +41,7 @@ function handleSubmit(event) {
         td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
       }
     }
-    if (td.textContent == visitante) {
+    if (td.textContent.includes(visitante)) {
       // GF del visitante
       td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesVisitante);
       // GC del visitante
