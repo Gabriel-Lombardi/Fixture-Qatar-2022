@@ -2,7 +2,7 @@ function handleSubmit(event) {
   event.preventDefault();
   let local = event.target.children[0].textContent;
   let visitante = event.target.children[3].textContent;
-  // console.log(local,visitante);
+  console.log(local,visitante);
   let golesLocal = event.target.children[1].value;
   let golesVisitante = event.target.children[2].value;
 
@@ -15,7 +15,7 @@ function handleSubmit(event) {
   for (let td of tds) {
     if (td.textContent.includes(local) || td.textContent.includes(visitante)) {
       // PJ + 1
-      // console.log(td);
+       console.log(td);
       td.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.textContent) + 1;
       // si empatan
       if (empate) {
@@ -28,9 +28,6 @@ function handleSubmit(event) {
       td.parentElement.children[7].textContent = parseInt(td.parentElement.children[7].textContent) + parseInt(golesLocal);
       // GC del local
       td.parentElement.children[8].textContent = parseInt(td.parentElement.children[8].textContent) + parseInt(golesVisitante);
-      // Diferencia de gol
-      // Diferencia de gol
-      td.parentElement.children[9].textContent = parseInt(td.parentElement.children[7].textContent) - parseInt(td.parentElement.children[8].textContent);
       // Sumar 3 puntos y partido ganado (PG) si gana el local
       if (golesLocal > golesVisitante) {
         td.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
@@ -40,6 +37,8 @@ function handleSubmit(event) {
       if (golesLocal < golesVisitante) {
         td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = parseInt(td.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent) + 1;
       }
+      // Diferencia de gol
+      td.parentElement.children[9].textContent = parseInt(td.parentElement.children[7].textContent) - parseInt(td.parentElement.children[8].textContent);
     }
     if (td.textContent.includes(visitante)) {
       // GF del visitante
